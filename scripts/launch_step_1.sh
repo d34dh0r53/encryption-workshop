@@ -17,18 +17,18 @@ yum install -y wget
 yum install -y centos-release-openstack-train
 
 # install software
-wget https://raw.githubusercontent.com/dave-mccowan/encryption-workshop/master/scripts/package.list
+wget https://raw.githubusercontent.com/vakwetu/encryption-workshop/master/scripts/package.list
 yum install -y $(cat package.list)
 
 # setup puppet-openstack
 mkdir -p /etc/puppet
 rmdir /etc/puppet/modules/
 ln -s /usr/share/openstack-puppet/modules /etc/puppet/
-git clone https://github.com/openstack/puppet-openstack-integration.git /etc/puppet/modules/openstack_integration
+git clone -b stable/train https://github.com/openstack/puppet-openstack-integration.git /etc/puppet/modules/openstack_integration
 
 # get script files
 cd ~
-wget https://raw.githubusercontent.com/dave-mccowan/encryption-workshop/master/scripts/launch_step_2.sh
+wget https://raw.githubusercontent.com/vakwetu/encryption-workshop/master/scripts/launch_step_2.sh
 
 # chmod +x
 chmod +x *.sh

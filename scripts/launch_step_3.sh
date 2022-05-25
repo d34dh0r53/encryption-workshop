@@ -80,6 +80,8 @@ openstack router create router1
 openstack router set router1 --external-gateway public
 openstack router add subnet router1 int-subnet
 
+# add image for cirros
+opeenstack image create --file /tmp/openstack/image/cirros-0.4.0-x86_64-disk.img cirros
 # Launch a VM and attach a floating IP Address
 INTERNAL_NETID=`openstack network show internal -f value -c id`
 openstack server create --flavor m1.tiny --image cirros --nic net-id=$INTERNAL_NETID my_vm
