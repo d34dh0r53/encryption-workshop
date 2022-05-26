@@ -181,7 +181,7 @@ Attach the volumes to the server.
     # openstack server add volume my_vm clear_volume
     # openstack server add volume my_vm encrypted_volume
 
-Login to the server, format and mount the volumes, then write some data.  You’ll write “public” data to the unencrypted volume and “private” information to the encrypted volume.  Note that the encrypted volume (vdc) is slighly smaller due to the LUKS header.
+Login to the server, format and mount the volumes, then write some data.  You’ll write “public” data to the unencrypted volume and “private” information to the encrypted volume.  Note that the encrypted volume (vdc) is slightly smaller due to the LUKS header.
 
     # ssh cirros@$IP_ADDR    # password is “gocubsgo”
     $ sudo su -
