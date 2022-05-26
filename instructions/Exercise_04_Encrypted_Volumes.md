@@ -181,10 +181,17 @@ Attach the volumes to the server.
     # openstack server add volume my_vm clear_volume
     # openstack server add volume my_vm encrypted_volume
 
-Login to the server, format and mount the volumes, then write some data.  You’ll write “public” data to the unencrypted volume and “private” information to the encrypted volume.
+Login to the server, format and mount the volumes, then write some data.  You’ll write “public” data to the unencrypted volume and “private” information to the encrypted volume.  Note that the encrypted volume (vdc) is slighly smaller due to the LUKS header.
 
     # ssh cirros@$IP_ADDR    # password is “gocubsgo”
     $ sudo su -
+    # lsblk
+    NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+    vda     252:0    0    2G  0 disk
+    |-vda1  252:1    0    2G  0 part /
+    `-vda15 252:15   0    8M  0 part
+    vdb     252:16   0    1G  0 disk
+    vdc     252:32   0 1022M  0 disk
     # mkfs.ext4 /dev/vdb
     mke2fs 1.42.12 (29-Aug-2014)
     Creating filesystem with 262144 4k blocks and 65536 inodes

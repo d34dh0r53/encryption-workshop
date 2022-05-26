@@ -20,7 +20,7 @@ Store the PKCS#8 formatted private key.
           --file private.pk8 \
           -c "Secret href" -f value)
 
-Next, use openssl to generate the self-signed certificate:
+Next, use openssl to generate the self-signed certificate (Note: you will be prompted to enter information to be stored in the certificate.  You can take the default (hit return) for each one, or provide a different answer.  The specific answers will not affect this exercise.):
 
     # openssl req -new -x509 -days 365 -key private.pk8 -out cert.pem
     You are about to be asked to enter information that will be incorporated
